@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="pass.css">
+</head>
+
+<body>
+    <!--Forgot Password-->
+    <div id="forgotPasswordForm" class="form-container active">
+        <h2>Forgot Password</h2>
+        <input type="email" placeholder="Enter your E-mail" required>
+        <button type="submit" onclick="showNewPasswordForm()">Submit</button>
+        <a href="login.html" class="login-link">Back to Login</a>
+    </div>
+    <!--To Create a new Password-->
+    <div id="newPasswordForm" class="form-container">
+        <h2>Create a new Password</h2>
+        <input type="password" id="newPassword" placeholder="Create a new Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm new Password" required>
+        <button type="submit" onclick="submitNewPassword()">Submit</button>
+        <a href="login.html" class="login-link">Back to Login</a>
+    </div>
+    <script>
+        function showNewPasswordForm() {
+            document.getElementById('forgotPasswordForm').classList.remove('active');
+            document.getElementById('newPasswordForm').classList.add('active');
+        }
+
+        function submitNewPassword() {
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            // Add logic here to handle the password reset (e.g., send to server)
+
+            alert('Password has been reset successfully.');
+
+            // Optionally redirect the user to the login page
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>
